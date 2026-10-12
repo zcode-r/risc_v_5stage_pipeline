@@ -52,7 +52,7 @@ logic [31:0] id_pc;
 logic [31:0] id_inst;
 
 always_ff @(posedge clk or posedge reset) begin
-    if (reset) begin
+    if (reset || pc_src) begin
         id_pc   <= 32'h00000000;
         id_inst <= 32'h00000000;
     end else if(!stall_id) begin
